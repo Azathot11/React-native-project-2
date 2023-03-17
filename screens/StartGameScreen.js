@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TextInput, StyleSheet, Alert,Text } from "react-native";
+import { View, TextInput, StyleSheet, Alert,useWindowDimensions,KeyboardAvoidingView ,ScrollView} from "react-native";
 import PrimaryButton from "../components/ui/PrimaryButton";
 import { Colors } from "../constants/colors";
 import Title from "../components/ui/Title";
@@ -8,6 +8,10 @@ import InstructionText from "../components/ui/InstructionText";
 
 function StartGameScreen({ userNumberHandler }) {
   const [number, setNumber] = useState("");
+
+  const {height} = useWindowDimensions()
+
+  const marginTop = height <  380 ? 30 : 100;
 
   const inputHandler = (enteredNumber) => {
     setNumber(enteredNumber);
@@ -30,8 +34,10 @@ function StartGameScreen({ userNumberHandler }) {
     userNumberHandler(+number);
   };
   return (
-    <>
-      <View style={styles.rootContainer}>
+    <ScrollView style={styles.screen}>
+    <KeyboardAvoidingView style={styles.screen} behavior="position">
+    
+      <View style={[styles.rootContainer,{marginTop}]}>
         <Title title="Guest My Number" />
 
         <Card>
@@ -56,16 +62,20 @@ function StartGameScreen({ userNumberHandler }) {
           </View>
         </Card>
       </View>
-    </>
+    </KeyboardAvoidingView>
+    </ScrollView>
   );
 }
 
 export default StartGameScreen;
+//const deviceHeight = Dimensions.get('window').height
 
 const styles = StyleSheet.create({
+  screen:{
+    flex:1
+  },
   rootContainer:{
     flex:1,
-    marginTop:100,
     Horizontal:16,
     alignItems:'center',
   },
