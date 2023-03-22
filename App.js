@@ -3,7 +3,7 @@ import { useState ,useEffect,useCallback} from 'react';
 import { StyleSheet,ImageBackground,SafeAreaView} from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useFonts } from 'expo-font';
-import * as Font from 'expo-font';
+import { StatusBar } from 'expo-status-bar';
 // import AppLoading from 'expo-app-loading';
 import * as SplashScreen from 'expo-splash-screen';
 
@@ -76,6 +76,8 @@ export default function App() {
 
   
   return (
+    <>
+    <StatusBar style='light'/>
     <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}
     onLayout={onLayoutRootView}>
       <ImageBackground
@@ -87,6 +89,7 @@ export default function App() {
          <SafeAreaView  style={styles.rootScreen}>{screen}</SafeAreaView>
       </ImageBackground>
     </LinearGradient>
+    </>
   );
 }
 

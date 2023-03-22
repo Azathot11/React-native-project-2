@@ -1,14 +1,30 @@
 import React from 'react'
-import { View,Text ,StyleSheet,Image,Dimensions} from 'react-native'
-import Title from '../components/ui/Title'
+import { View,Text ,StyleSheet,Image,useWindowDimensions,ScrollView} from 'react-native'
+import Title from '../components/ui/Title.ios'
 import { Colors } from '../constants/colors';
 import PrimaryButton from '../components/ui/PrimaryButton';
 
 const GameOverScreen = ({numberOfGuess,userNumber,reStart}) => {
+  const {width,height} = useWindowDimensions();
+
+  let imageSize = 300
+  if(width < 380){
+     imageSize = 150;
+  }
+  if(height < 500){
+    imageSize = 80;
+  }
+
+  const imageStyle ={
+    width:imageSize,
+    height:imageSize,
+    borderRadius:imageSize/2,
+  }
   return (
+    <ScrollView style={styles.screen}>
     <View style={styles.rootContainer}>
       <Title title="Game Over" />
-      <View style={styles.imageContainerStyle}>
+      <View style={[styles.imageContainerStyle,imageStyle]}>
         <Image style={styles.image} source={require("../assets/success.png")} />
       </View>
       <Text style={styles.summaryText}>
@@ -17,14 +33,18 @@ const GameOverScreen = ({numberOfGuess,userNumber,reStart}) => {
       </Text>
       <PrimaryButton pressedHandler={reStart}>Start New Game</PrimaryButton>
     </View>
+    </ScrollView>
   );
 }
 
 export default GameOverScreen
 
-const deviceWidth = Dimensions.get('window').width
+// const deviceWidth = Dimensions.get('window').width
 
 const styles = StyleSheet.create({
+  screen:{
+    flex:1
+  },
   rootContainer:{
     flex:1,
     padding:24,
@@ -32,9 +52,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   imageContainerStyle:{
-    width:deviceWidth <380 ? 150 :300,
-    height:deviceWidth <380 ? 150 :300,
-    borderRadius:deviceWidth <380 ? 75 :150,
+    // width:deviceWidth <380 ? 150 :300,
+    // height:deviceWidth <380 ? 150 :300,
+    // borderRadius:deviceWidth <380 ? 75 :150,
     borderWidth:3,
     borderColor:Colors.primary800,
     overflow: 'hidden',
