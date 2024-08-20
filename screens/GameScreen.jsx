@@ -92,7 +92,7 @@ const GameScreen = ({
             <PrimaryButton
               pressedHandler={nextGuessHandler.bind(this, "lower")}
             >
-              <Ionicons name="md-remove" size={24} color="white" />
+              <Ionicons name="remove" size={24} color="white" />
             </PrimaryButton>
           </View>
           <View style={styles.buttonContainer}>
@@ -100,7 +100,7 @@ const GameScreen = ({
               pressedHandler={nextGuessHandler.bind(this, "greater")}
             >
               <Ionicons
-                name="md-add"
+                name="add"
                 size={24}
                 color="white"
                 keyExtractor={(item) => item}
