@@ -1,7 +1,7 @@
 {
-  "name": "project-two",
+  "name": "second-app",
   "version": "1.0.0",
-  "main": "node_modules/expo/AppEntry.js",
+  "main": "expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
     "android": "expo start --android",
@@ -9,14 +9,15 @@
     "web": "expo start --web"
   },
   "dependencies": {
-    "expo": "~48.0.5",
+    "@expo/vector-icons": "^14.0.2",
+    "expo": "~51.0.20",
     "expo-app-loading": "^2.1.1",
-    "expo-font": "~11.1.1",
-    "expo-linear-gradient": "~12.1.2",
-    "expo-status-bar": "~1.4.4",
+    "expo-font": "^12.0.9",
+    "expo-linear-gradient": "~13.0.2",
+    "expo-splash-screen": "~0.27.5",
+    "expo-status-bar": "~1.12.1",
     "react": "18.2.0",
-    "react-native": "0.71.4",
-    "expo-splash-screen": "~0.18.1"
+    "react-native": "0.74.3"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"

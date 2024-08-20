@@ -16,7 +16,7 @@ import { Colors } from './constants/colors';
 SplashScreen.preventAutoHideAsync();
 
 export default function App() {
-  
+
 
   const [userNumber,setUserNumber] = useState(null);
 
@@ -24,9 +24,9 @@ export default function App() {
 
   const [numberOfGuess,setNumberOfGuess] = useState([]);
 
- const [fontIsloaded] = useFonts({
-     'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
-     "open-sans-bold": require('./assets/fonts/OpenSans-Bold.ttf')
+  const [fontsLoaded] = useFonts({
+    'open-sans': require('./assets/fonts/OpenSans-Regular.ttf'),
+    "open-sans-bold": require('./assets/fonts/OpenSans-Bold.ttf')
   })
 
 
@@ -40,12 +40,12 @@ export default function App() {
     prepare();
   }, []);
   const onLayoutRootView = useCallback(async () => {
-    if (fontIsloaded) {
+    if (fontsLoaded) {
       await SplashScreen.hideAsync();
     }
-  }, [fontIsloaded]);
+  }, [fontsLoaded]);
 
-  if (!fontIsloaded) {
+  if (!fontsLoaded) {
     return null;
   }
   const userNumberHandler = (enteredNumber)=>{
@@ -57,7 +57,7 @@ export default function App() {
     setGameOver(true)
   }
 
-  
+
   const restartGameHandler=()=>{
     setUserNumber(null)
     setGameOver(false)
@@ -74,22 +74,22 @@ export default function App() {
   }
 
 
-  
+
   return (
-    <>
-    <StatusBar style='light'/>
-    <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}
-    onLayout={onLayoutRootView}>
-      <ImageBackground
-        source={require("./assets/background.png")}
-        resizeMode="cover"
-        style={styles.rootScreen}
-        imageStyle={styles.backgroundImage}
-      >
-         <SafeAreaView  style={styles.rootScreen}>{screen}</SafeAreaView>
-      </ImageBackground>
-    </LinearGradient>
-    </>
+      <>
+        <StatusBar style='light'/>
+        <LinearGradient colors={[Colors.primary700, Colors.accent500]} style={styles.rootScreen}
+                        onLayout={onLayoutRootView}>
+          <ImageBackground
+              source={require("./assets/images/background.png")}
+              resizeMode="cover"
+              style={styles.rootScreen}
+              imageStyle={styles.backgroundImage}
+          >
+            <SafeAreaView  style={styles.rootScreen}>{screen}</SafeAreaView>
+          </ImageBackground>
+        </LinearGradient>
+      </>
   );
 }
 

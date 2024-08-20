@@ -36,9 +36,9 @@ function StartGameScreen({ userNumberHandler }) {
   return (
     <ScrollView style={styles.screen}>
     <KeyboardAvoidingView style={styles.screen} behavior="position">
-    
+
       <View style={[styles.rootContainer,{marginTop}]}>
-        <Title title="Guest My Number" />
+        <Title title="Guess My Number" />
 
         <Card>
           <InstructionText text='Enter A Number'/>
@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     Horizontal:16,
     alignItems:'center',
   },
- 
+
   instructionText: {
     color: Colors.accent500,
     fontSize:24

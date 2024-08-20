@@ -25,7 +25,7 @@ const GameOverScreen = ({numberOfGuess,userNumber,reStart}) => {
     <View style={styles.rootContainer}>
       <Title title="Game Over" />
       <View style={[styles.imageContainerStyle,imageStyle]}>
-        <Image style={styles.image} source={require("../assets/success.png")} />
+        <Image style={styles.image} source={require("../assets/images/success.png")} />
       </View>
       <Text style={styles.summaryText}>
         Your phone needed <Text style={styles.highlight}> {numberOfGuess?.length} </Text> rounds to guess the number{" "}

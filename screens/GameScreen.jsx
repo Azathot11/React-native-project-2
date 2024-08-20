@@ -113,7 +113,7 @@ const GameScreen = ({
   );
 
   if (width > 600) {
-   
+
       content = (
       <>
         <View style={styles.buttonContainerWide}>
@@ -121,7 +121,7 @@ const GameScreen = ({
             <PrimaryButton
               pressedHandler={nextGuessHandler.bind(this, "lower")}
             >
-              <Ionicons name="md-remove" size={24} color="white" />
+              <Ionicons name="remove" size={24} color="white" />
             </PrimaryButton>
           </View>
           <NumberContainer>{currentGuess}</NumberContainer>
@@ -130,7 +130,7 @@ const GameScreen = ({
               pressedHandler={nextGuessHandler.bind(this, "greater")}
             >
               <Ionicons
-                name="md-add"
+                name="add"
                 size={24}
                 color="white"
                 keyExtractor={(item) => item}
@@ -140,7 +140,7 @@ const GameScreen = ({
         </View>
       </>
       )
-   
+
   }
   return (
     <View style={styles.screen}>

@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Project-two",
-    "slug": "Project-two",
+    "name": "second-app",
+    "slug": "second-app",
     "version": "1.0.0",
     "orientation": "default",
     "icon": "./assets/icon.png",
@@ -11,9 +11,6 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
     "ios": {
       "supportsTablet": true
     },
